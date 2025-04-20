@@ -411,7 +411,7 @@ DOCKER_CMD="docker run -it --rm \
     --cap-add=NET_ADMIN \
     --cap-add=NET_RAW \
     -v \"$CALL_DIR\":/workspace \
-    -e OPENAI_API_KEY=\"$OPENAI_API_KEY\" \
+    ${OPENAI_API_KEY:+"-e OPENAI_API_KEY=\"$OPENAI_API_KEY\""} \
     $ENV_DOCKER_ARGS \
     -w /workspace \
     --entrypoint /bin/bash \
